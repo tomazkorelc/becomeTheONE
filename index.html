@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Become the ONE</title>
+<meta name="description" content="Most companies use AI. The best become the ONE. An AI-native, agentic hub for companies that refuse to be normal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0d1117; --ink-soft:#1c2128; --paper:#ffffff; --paper-warm:#fafafa;
+    --grey:#6e7681; --grey-light:#9aa3ad; --hair:#ececec;
+    --cyan:#0077B6; --cyan-bright:#46d6f8; --max:1100px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--ink);background:var(--paper);line-height:1.5;overflow-x:hidden}
+  body.cjk{font-family:'Noto Sans SC','Inter',sans-serif}
+  body.deva{font-family:'Noto Sans Devanagari','Inter',sans-serif}
+  ::selection{background:var(--cyan);color:#fff}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:22px 40px;background:rgba(255,255,255,0.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid transparent;transition:border-color .4s ease}
+  nav.scrolled{border-bottom:1px solid var(--hair)}
+  .brand{font-family:'Poppins',sans-serif;font-weight:800;font-size:19px;letter-spacing:-.02em;color:var(--ink);text-decoration:none}
+  .brand .o{color:var(--cyan);font-size:1.5em;line-height:0}
+  .nav-right{display:flex;align-items:center;gap:30px}
+  .nav-link{font-size:13.5px;font-weight:500;color:var(--ink);text-decoration:none;letter-spacing:.01em;opacity:.85;transition:opacity .25s}
+  .nav-link:hover{opacity:1}
+  .nav-cta{font-size:13px;font-weight:600;color:#fff;background:var(--ink);padding:9px 20px;border-radius:980px;text-decoration:none;transition:transform .25s,background .25s}
+  .nav-cta:hover{background:var(--cyan);transform:translateY(-1px)}
+  .lang{position:relative}
+  .lang-btn{font-size:13px;font-weight:500;color:var(--ink);background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:6px;opacity:.85;font-family:inherit}
+  .lang-btn:hover{opacity:1}
+  .lang-btn .chev{font-size:9px;opacity:.6}
+  .lang-menu{position:absolute;top:32px;right:0;background:#fff;border:1px solid var(--hair);border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.1);padding:6px;min-width:160px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:all .22s cubic-bezier(.16,1,.3,1);max-height:70vh;overflow-y:auto}
+  .lang-menu.open{opacity:1;visibility:visible;transform:none}
+  .lang-menu button{display:block;width:100%;text-align:left;background:none;border:none;padding:9px 14px;font-size:13.5px;color:var(--ink);cursor:pointer;border-radius:9px;font-family:inherit;transition:background .18s}
+  .lang-menu button:hover{background:var(--paper-warm)}
+  .lang-menu button.active{color:var(--cyan);font-weight:600}
+  @media(max-width:760px){nav{padding:18px 20px}.nav-right{gap:14px}.nav-link{display:none}}
+
+  .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative}
+  .hero-eyebrow{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:34px;opacity:0;animation:fadeUp 1s ease .2s forwards}
+  .hero h1{font-family:'Poppins',sans-serif;font-weight:700;font-size:clamp(38px,7.5vw,90px);line-height:1.04;letter-spacing:-.035em;max-width:16ch;margin:0 auto}
+  .hero h1 .line1{color:var(--ink);opacity:0;animation:fadeUp 1.1s ease .35s forwards}
+  .hero h1 .line2{display:block;color:var(--grey-light);font-weight:600;opacity:0;animation:fadeUp 1.1s ease .5s forwards}
+  .hero h1 .line2 b.one{color:var(--cyan);font-weight:700}
+  .hero-sub{margin-top:38px;font-size:clamp(16px,2.2vw,21px);font-weight:400;color:var(--grey);max-width:50ch;line-height:1.55;opacity:0;animation:fadeUp 1.1s ease .7s forwards}
+  .hero-actions{margin-top:46px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:center;opacity:0;animation:fadeUp 1.1s ease .85s forwards}
+  .btn-primary{font-size:15px;font-weight:600;color:#fff;background:var(--ink);padding:15px 30px;border-radius:980px;text-decoration:none;transition:transform .25s,background .25s}
+  .btn-primary:hover{background:var(--cyan);transform:translateY(-2px)}
+  .btn-ghost{font-size:15px;font-weight:600;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:7px;transition:gap .25s,color .25s}
+  .btn-ghost:hover{color:var(--cyan);gap:11px}
+  .btn-ghost .arr{transition:transform .25s}.btn-ghost:hover .arr{transform:translateX(2px)}
+  .pwr{font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--grey-light);text-decoration:none}
+  .pwr b{font-weight:700;color:var(--cyan)}
+  .scroll-hint{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--grey-light);opacity:0;animation:fadeIn 1.5s ease 1.4s forwards}
+  .scroll-hint::after{content:"";display:block;width:1px;height:38px;margin:14px auto 0;background:linear-gradient(var(--grey-light),transparent);animation:scrollPulse 2.2s ease-in-out infinite}
+
+  section{padding:140px 24px}
+  .wrap{max-width:var(--max);margin:0 auto}
+  .center{text-align:center}
+  .statement{font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(28px,5vw,56px);line-height:1.14;letter-spacing:-.03em;max-width:22ch}
+  .statement.center{margin-left:auto;margin-right:auto}
+  .statement .dim{color:var(--grey-light)}.statement .cy{color:var(--cyan)}
+  .lede{font-size:clamp(17px,2.4vw,22px);font-weight:400;color:var(--grey);line-height:1.6;max-width:56ch;margin-top:28px}
+  .center .lede{margin-left:auto;margin-right:auto}
+  .eyebrow{font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:26px}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}
+
+  .dark{background:var(--ink);color:var(--paper)}
+  .dark .statement{color:var(--paper)}.dark .statement .dim{color:#5a6470}
+  .dark .lede{color:var(--grey-light)}.dark .eyebrow{color:var(--cyan-bright)}
+
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:var(--max);margin:0 auto;border-top:1px solid var(--hair)}
+  .split-row{display:contents}
+  .cell{padding:44px 44px;border-bottom:1px solid var(--hair)}
+  .cell.l{border-right:1px solid var(--hair)}
+  .cell .k{font-size:13px;font-weight:600;letter-spacing:.04em;margin-bottom:14px}
+  .cell.most .k{color:var(--grey-light)}.cell.one .k{color:var(--cyan)}
+  .cell .v{font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(19px,2.4vw,25px);letter-spacing:-.02em;line-height:1.28}
+  .cell.most .v{color:var(--grey)}.cell.one .v{color:var(--ink)}
+  @media(max-width:720px){.split{grid-template-columns:1fr}.cell.l{border-right:none}.cell{padding:34px 26px}.cell.most{padding-bottom:12px}.cell.one{border-top:0}}
+
+  .cap{border-top:1px solid var(--hair)}
+  .cap-row{display:grid;grid-template-columns:64px 1fr;gap:32px;padding:44px 0;border-bottom:1px solid var(--hair);align-items:start}
+  .cap-num{font-family:'Poppins',sans-serif;font-weight:700;font-size:15px;color:var(--cyan);padding-top:6px}
+  .cap-body h3{font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(21px,3vw,30px);letter-spacing:-.02em;margin-bottom:12px}
+  .cap-body p{font-size:16.5px;color:var(--grey);line-height:1.6;max-width:62ch}
+  @media(max-width:600px){.cap-row{grid-template-columns:1fr;gap:10px;padding:32px 0}}
+
+  .philo{text-align:center}
+  .philo .mark{font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(32px,5.6vw,60px);line-height:1.12;letter-spacing:-.03em;max-width:20ch;margin:0 auto}
+  .philo .mark .dim{color:#5a6470}.philo .mark .cy{color:var(--cyan-bright)}
+  .philo .attrib{margin-top:34px;font-size:14px;letter-spacing:.06em;color:var(--grey-light);text-transform:uppercase;font-weight:500}
+  .dark .pwr{color:#5a6470}.dark .pwr b{color:var(--cyan-bright)}
+
+  .actt{display:flex;justify-content:center;gap:0;flex-wrap:wrap;margin-top:54px}
+  .actt-step{flex:1;min-width:150px;padding:30px 22px;border-left:1px solid var(--hair);text-align:left}
+  .actt-step:first-child{border-left:none}
+  .actt-step .letter{font-family:'Poppins',sans-serif;font-weight:800;font-size:30px;color:var(--cyan);line-height:1}
+  .actt-step .name{margin-top:14px;font-family:'Poppins',sans-serif;font-weight:600;font-size:15px;letter-spacing:-.01em}
+  .actt-step .desc{margin-top:7px;font-size:13.5px;color:var(--grey);line-height:1.5}
+  .method-mark{font-family:'Poppins',sans-serif;font-weight:600}
+  .method-mark .re{color:var(--cyan)}
+  @media(max-width:760px){.actt-step{min-width:50%;border-left:none;border-top:1px solid var(--hair)}.actt-step:first-child,.actt-step:nth-child(2){border-top:none}}
+
+  .select{text-align:center;background:var(--ink);color:#fff}
+  .select .eyebrow{color:var(--cyan-bright)}
+  .select .statement{color:#fff}.select .statement .dim{color:#5a6470}
+  .select .lede{color:var(--grey-light)}
+  .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px;margin:64px auto 0}
+  .price-card{border:1px solid #21262d;border-radius:22px;padding:46px 38px;text-align:left;background:#0f151c;transition:border-color .4s,transform .4s}
+  .price-card:hover{border-color:var(--cyan);transform:translateY(-4px)}
+  .price-card .plabel{font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--grey-light);margin-bottom:18px}
+  .price-card.entry .plabel{color:var(--cyan-bright)}
+  .price-card .pval{font-family:'Poppins',sans-serif;font-weight:700;font-size:clamp(38px,6vw,60px);letter-spacing:-.03em;color:#fff;line-height:1}
+  .price-card .pnote{margin-top:22px;font-size:13.5px;font-style:italic;color:var(--grey-light);line-height:1.55;border-top:1px solid #21262d;padding-top:20px}
+  @media(max-width:720px){.price-grid{grid-template-columns:1fr}}
+
+  .partner{text-align:center;background:var(--paper-warm)}
+  .partner .pre{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey-light);font-weight:500;margin-bottom:22px}
+  .partner .mark{font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(40px,7vw,72px);letter-spacing:-.03em;color:var(--ink);text-decoration:none;display:inline-block}
+  .partner .mark .eight{color:var(--cyan)}
+  .partner .powered{margin-top:18px;font-size:15px;color:var(--grey);font-weight:400}
+  .partner .powered a{color:var(--ink);font-weight:600;text-decoration:none;border-bottom:1px solid var(--cyan)}
+
+  .closer{text-align:center;background:var(--ink);color:#fff}
+  .closer h2{font-family:'Poppins',sans-serif;font-weight:700;font-size:clamp(34px,6.5vw,72px);letter-spacing:-.035em;line-height:1.04;max-width:16ch;margin:0 auto}
+  .closer h2 .one{color:var(--cyan-bright)}
+  .closer .sub{margin-top:30px;font-size:18px;color:var(--grey-light);max-width:44ch;margin-left:auto;margin-right:auto;line-height:1.55}
+  .closer .btn-primary{margin-top:44px;background:#fff;color:var(--ink)}
+  .closer .btn-primary:hover{background:var(--cyan-bright);color:var(--ink)}
+
+  footer{background:var(--ink);color:var(--grey);padding:48px 40px 56px;border-top:1px solid #21262d}
+  .foot-wrap{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+  .foot-brand{font-family:'Poppins',sans-serif;font-weight:800;font-size:16px;color:#fff;letter-spacing:-.02em}
+  .foot-brand .o{color:var(--cyan-bright)}
+  .foot-links{display:flex;gap:26px}
+  .foot-links a{color:var(--grey-light);font-size:13px;text-decoration:none;transition:color .25s}
+  .foot-links a:hover{color:#fff}
+  .foot-fine{width:100%;margin-top:14px;font-size:12px;color:#4b525a;line-height:1.6}
+  .foot-fine a{color:#6e7681;text-decoration:none;border-bottom:1px solid #30363d}
+  .foot-fine a:hover{color:#9aa3ad}
+
+  .ultimate{background:#05070a;color:#fff;padding:0}
+  .ult-block{min-height:88vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 28px;border-bottom:1px solid #12161c;position:relative}
+  .ult-block .n{position:absolute;top:44px;left:50%;transform:translateX(-50%);font-family:'Poppins',sans-serif;font-weight:700;font-size:13px;letter-spacing:.3em;color:#2a3139}
+  .ult-block p{font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(26px,4.6vw,50px);line-height:1.16;letter-spacing:-.03em;max-width:20ch;color:#e8edf2}
+  .ult-block p .cy{color:var(--cyan-bright)}
+  .ult-block:last-child{border-bottom:none}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes scrollPulse{0%,100%{opacity:.3;transform:scaleY(.7)}50%{opacity:1;transform:scaleY(1)}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#top" class="brand">become&nbsp;the&nbsp;<span class="o">ONE</span></a>
+  <div class="nav-right">
+    <a href="#thesis" class="nav-link" data-i18n="nav_thesis">Thesis</a>
+    <a href="#capability" class="nav-link" data-i18n="nav_capability">Capability</a>
+    <a href="#method" class="nav-link" data-i18n="nav_method">Method</a>
+    <a href="#partner" class="nav-link" data-i18n="nav_partner">Partner</a>
+    <div class="lang">
+      <button class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false"><span id="langCur">English</span><span class="chev">▼</span></button>
+      <div class="lang-menu" id="langMenu" role="menu"></div>
+    </div>
+    <a href="#start" class="nav-cta" data-i18n="nav_start">Start</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-eyebrow" data-i18n="hero_eyebrow">AI-native · Agentic</div>
+  <h1>
+    <span class="line1" data-i18n="hero_l1">Most companies use AI.</span>
+    <span class="line2"><span data-i18n="hero_l2a">The best become </span><b class="one" data-i18n="hero_l2b">the ONE</b><span data-i18n="hero_l2c">.</span></span>
+  </h1>
+  <p class="hero-sub" data-i18n="hero_sub">There is the company that adopts AI as a tool. And there is the one that becomes it. Only one of them leads the category.</p>
+  <div class="hero-actions">
+    <a href="#start" class="btn-primary" data-i18n="hero_cta">Become the ONE</a>
+    <a href="#thesis" class="btn-ghost"><span data-i18n="hero_ghost">See the thesis</span> <span class="arr">→</span></a>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+  <a class="pwr" href="https://www.innovate.si" target="_blank" rel="noopener" style="margin-top:30px;opacity:0;animation:fadeIn 1.5s ease 1.1s forwards"><span data-i18n="pwr">Powered by</span> <b>Innov8</b></a>
+</header>
+
+<section id="thesis">
+  <div class="wrap center">
+    <div class="eyebrow reveal" data-i18n="thesis_eye">The thesis</div>
+    <h2 class="statement center reveal d1"><span data-i18n="thesis_h">Normal doesn't win. </span><span class="dim" data-i18n="thesis_dim">The market doesn't reward the average — it crowns the </span><span class="cy" data-i18n="thesis_cy">ONE</span><span data-i18n="thesis_end">.</span></h2>
+    <p class="lede reveal d2" data-i18n="thesis_lede">Every company now has access to the same models, the same tools, the same prompts. Access is not advantage. The winners are the ones who stop using AI from the outside and rebuild themselves around it — until intelligence isn't a feature they bought, but the way they operate.</p>
+  </div>
+</section>
+
+<section style="padding-top:40px;padding-bottom:120px">
+  <div class="wrap center" style="margin-bottom:54px">
+    <h2 class="statement center reveal"><span data-i18n="two_h">Two companies. </span><span class="dim" data-i18n="two_dim">One outcome.</span></h2>
+  </div>
+  <div class="split reveal d1">
+    <div class="split-row"><div class="cell most l"><div class="k" data-i18n="most">Most companies</div><div class="v" data-i18n="m1">Add AI on top of yesterday's process.</div></div><div class="cell one"><div class="k" data-i18n="one">The ONE</div><div class="v" data-i18n="o1">Rebuild the process around intelligence itself.</div></div></div>
+    <div class="split-row"><div class="cell most l"><div class="k" data-i18n="most">Most companies</div><div class="v" data-i18n="m2">Automate the work humans already did.</div></div><div class="cell one"><div class="k" data-i18n="one">The ONE</div><div class="v" data-i18n="o2">Replace the work that no longer needs to exist.</div></div></div>
+    <div class="split-row"><div class="cell most l"><div class="k" data-i18n="most">Most companies</div><div class="v" data-i18n="m3">Buy a tool. The advantage expires when the competitor buys it too.</div></div><div class="cell one"><div class="k" data-i18n="one">The ONE</div><div class="v" data-i18n="o3">Become the system. The advantage can't be purchased — only built.</div></div></div>
+    <div class="split-row"><div class="cell most l"><div class="k" data-i18n="most">Most companies</div><div class="v" data-i18n="m4">Ask AI a question.</div></div><div class="cell one"><div class="k" data-i18n="one">The ONE</div><div class="v" data-i18n="o4">Give AI the mandate to act.</div></div></div>
+    <div class="split-row"><div class="cell most l"><div class="k" data-i18n="most">Most companies</div><div class="v" data-i18n="m5">Move faster at the same game.</div></div><div class="cell one"><div class="k" data-i18n="one">The ONE</div><div class="v" data-i18n="o5">Change the game everyone else is forced to play.</div></div></div>
+    <div class="split-row"><div class="cell most l"><div class="k" data-i18n="most">Most companies</div><div class="v" data-i18n="m6">Stay a company that has AI.</div></div><div class="cell one"><div class="k" data-i18n="one">The ONE</div><div class="v" data-i18n="o6">Become the company that is AI.</div></div></div>
+  </div>
+</section>
+
+<section class="dark philo">
+  <div class="wrap">
+    <p class="mark reveal"><span data-i18n="philo_a">We don't help companies </span><span class="dim" data-i18n="philo_dim">keep up</span><span data-i18n="philo_b">.</span><br><span data-i18n="philo_c">We make them the one everyone else </span><span class="cy" data-i18n="philo_cy">measures against</span><span data-i18n="philo_d">.</span></p>
+    <div class="attrib reveal d2" data-i18n="philo_attr">The agentic operating layer</div>
+    <a class="pwr reveal d3" href="https://www.innovate.si" target="_blank" rel="noopener" style="margin-top:22px;display:inline-block"><span data-i18n="pwr">Powered by</span> <b>Innov8</b></a>
+  </div>
+</section>
+
+<section id="capability">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:30px">
+      <div class="eyebrow reveal" data-i18n="cap_eye">What we build</div>
+      <h2 class="statement center reveal d1"><span data-i18n="cap_h">An operating layer, </span><span class="dim" data-i18n="cap_dim">not an add-on.</span></h2>
+    </div>
+    <div class="cap reveal d2">
+      <div class="cap-row"><div class="cap-num">01</div><div class="cap-body"><h3 data-i18n="cap1_h">Agentic systems that run the work</h3><p data-i18n="cap1_p">Not chatbots bolted to a sidebar. Autonomous agents that own end-to-end workflows — reading, deciding, acting, and handing off — inside the parts of your business that actually move the number.</p></div></div>
+      <div class="cap-row"><div class="cap-num">02</div><div class="cap-body"><h3 data-i18n="cap2_h">AI-native architecture</h3><p data-i18n="cap2_p">We don't automate the old org chart. We redraw it. Intelligence sits at the center of how the company operates, and every process is designed for a world where the machine does the first draft of everything.</p></div></div>
+      <div class="cap-row"><div class="cap-num">03</div><div class="cap-body"><h3 data-i18n="cap3_h">A category position you can defend</h3><p data-i18n="cap3_p">Being AI-native is only worth it if the market knows you're the one. We build the proof, the positioning, and the operating reality that makes you the reference point in your space — not a follower in it.</p></div></div>
+      <div class="cap-row"><div class="cap-num">04</div><div class="cap-body"><h3 data-i18n="cap4_h">Decisions that compound</h3><p data-i18n="cap4_p">Systems that don't just execute — they learn. Every cycle sharpens the model of your business, so the operating layer you run next quarter is measurably smarter than the one you run today.</p></div></div>
+      <div class="cap-row"><div class="cap-num">05</div><div class="cap-body"><h3 data-i18n="cap5_h">A moat that widens with time</h3><p data-i18n="cap5_p">The gap between you and the market isn't a launch — it's a trajectory. We build the compounding advantage that competitors can't buy, borrow, or copy, because it lives in how you operate, not what you own.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="method" style="background:var(--paper-warm)">
+  <div class="wrap center">
+    <div class="eyebrow reveal" data-i18n="method_eye">The method</div>
+    <h2 class="statement center reveal d1"><span class="method-mark"><span class="re" data-i18n="method_re">RE-</span><span data-i18n="method_actt">ACTT</span></span><span class="dim" data-i18n="method_dim"> — how a company becomes the ONE.</span></h2>
+    <p class="lede reveal d2" data-i18n="method_lede">A repeatable engine for transformation. Not a workshop. A path from where you are to the front of your category.</p>
+    <div class="actt reveal d3">
+      <div class="actt-step"><div class="letter">A</div><div class="name" data-i18n="actt_a">Architecture</div><div class="desc" data-i18n="actt_ad">Design the AI-native operating model from the ground up.</div></div>
+      <div class="actt-step"><div class="letter">C</div><div class="name" data-i18n="actt_c">Capability</div><div class="desc" data-i18n="actt_cd">Stand up the agents and systems that do the work.</div></div>
+      <div class="actt-step"><div class="letter">T</div><div class="name" data-i18n="actt_t1">Target</div><div class="desc" data-i18n="actt_t1d">Point everything at the outcome that defines the category.</div></div>
+      <div class="actt-step"><div class="letter">T</div><div class="name" data-i18n="actt_t2">Triumph</div><div class="desc" data-i18n="actt_t2d">You don't catch up. You become the one others chase.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="select" id="qualify">
+  <div class="wrap">
+    <div class="eyebrow reveal" data-i18n="select_eye">How we work</div>
+    <h2 class="statement center reveal d1"><span data-i18n="select_h">We work with the few. </span><span class="dim" data-i18n="select_dim">And only they qualify.</span></h2>
+    <p class="lede reveal d2" style="margin-left:auto;margin-right:auto;text-align:center" data-i18n="select_lede">This is not a service you buy. It is a position you earn. We take on a small number of companies with the will and the weight to become the reference point in their category — and we turn them into it.</p>
+    <div class="price-grid reveal d3">
+      <div class="price-card main"><div class="plabel" data-i18n="price_main_l">The engagement</div><div class="pval" data-i18n="price_main_v">€1,000,000</div><div class="pnote" data-i18n="price_main_note">Don't dream the category. Become it.</div></div>
+      <div class="price-card entry"><div class="plabel" data-i18n="price_entry_l">The qualification</div><div class="pval" data-i18n="price_entry_v">€10,000</div><div class="pnote" data-i18n="price_entry_note">Before you become the ONE, find out if you were ever meant to be.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="partner" id="partner">
+  <div class="wrap">
+    <div class="pre reveal" data-i18n="partner_pre">In partnership with</div>
+    <a class="mark reveal d1" href="https://www.innovate.si" target="_blank" rel="noopener">INNOV<span class="eight">8</span></a>
+    <div class="powered reveal d2"><span data-i18n="partner_powered_a">Engineered and powered by </span><a href="https://www.innovate.si" target="_blank" rel="noopener">Innov8</a><span data-i18n="partner_powered_b"> — the agentic AI studio making companies AI-native.</span></div>
+  </div>
+</section>
+
+<section class="closer" id="start">
+  <div class="wrap">
+    <h2 class="reveal"><span data-i18n="closer_h1">Don't adopt AI.</span><br><span class="one" data-i18n="closer_h2">Become it.</span></h2>
+    <p class="sub reveal d1" data-i18n="closer_sub">If you intend to be the reference point in your category — not a participant in it — there's a conversation worth having.</p>
+    <a href="mailto:tomaz@innovate.si" class="btn-primary reveal d2" data-i18n="closer_cta">Start the conversation</a>
+    <a class="pwr reveal d3" href="https://www.innovate.si" target="_blank" rel="noopener" style="margin-top:34px;display:inline-block"><span data-i18n="pwr">Powered by</span> <b>Innov8</b></a>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-wrap">
+    <div class="foot-brand">become the <span class="o">ONE</span></div>
+    <div class="foot-links">
+      <a href="#thesis" data-i18n="nav_thesis">Thesis</a>
+      <a href="#capability" data-i18n="nav_capability">Capability</a>
+      <a href="#method" data-i18n="nav_method">Method</a>
+      <a href="mailto:tomaz@innovate.si" data-i18n="foot_contact">Contact</a>
+    </div>
+    <div class="foot-fine" data-i18n="foot_fine">becomethe.one — an AI-native, agentic hub. In partnership with Artur &amp; Bruno · <a href="https://cloudseeds.ai" target="_blank" rel="noopener">CloudSeeds.ai</a>, the AI-native agentic framework, and <a href="https://www.innovate.si" target="_blank" rel="noopener">Innov8</a>, the agentic AI studio. Most companies use AI. The best become the ONE.</div>
+  </div>
+</footer>
+
+<div class="ultimate">
+  <div class="ult-block"><div class="n">I</div><p data-i18n="u1">Most people stopped reading three lines ago. That is the first filter.</p></div>
+  <div class="ult-block"><div class="n">II</div><p data-i18n="u2">The category leader was never the one who moved first. It was the one who refused to move like everyone else.</p></div>
+  <div class="ult-block"><div class="n">III</div><p data-i18n="u3">You cannot buy what we build. You can only <span class="cy">become</span> it.</p></div>
+  <div class="ult-block"><div class="n">IV</div><p data-i18n="u4">Normal is a crowded place. The <span class="cy">ONE</span> is not.</p></div>
+  <div class="ult-block"><div class="n">V</div><p data-i18n="u5">You thought this page was over. That assumption is exactly why most never become the ONE.</p></div>
+</div>
+
+<script src="i18n.js"></script>
+<script>
+  const nav=document.getElementById('nav');
+  addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>10)},{passive:true});
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  const LANGS=[["en","English"],["sl","Slovenščina"],["sr","Српски"],["ru","Русский"],["de","Deutsch"],["es","Español"],["zh","中文"],["sa","संस्कृतम्"],["fr","Français"],["it","Italiano"],["zu","isiZulu"]];
+  const menu=document.getElementById('langMenu'),btn=document.getElementById('langBtn'),cur=document.getElementById('langCur');
+  LANGS.forEach(([code,name])=>{const b=document.createElement('button');b.textContent=name;b.dataset.code=code;b.onclick=()=>{setLang(code);menu.classList.remove('open');btn.setAttribute('aria-expanded','false')};menu.appendChild(b)});
+  btn.onclick=(e)=>{e.stopPropagation();const o=menu.classList.toggle('open');btn.setAttribute('aria-expanded',o)};
+  document.addEventListener('click',()=>{menu.classList.remove('open');btn.setAttribute('aria-expanded','false')});
+
+  function setLang(code){
+    const dict=(window.I18N&&window.I18N[code])?window.I18N[code]:window.I18N.en;
+    document.documentElement.lang=code;
+    document.body.classList.toggle('cjk',code==='zh');
+    document.body.classList.toggle('deva',code==='sa');
+    document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(dict[k]!==undefined)el.innerHTML=dict[k]});
+    const found=LANGS.find(l=>l[0]===code);cur.textContent=found?found[1]:'English';
+    menu.querySelectorAll('button').forEach(b=>b.classList.toggle('active',b.dataset.code===code));
+    try{localStorage.setItem('btolang',code)}catch(e){}
+  }
+  let saved='en';try{saved=localStorage.getItem('btolang')||'en'}catch(e){}
+  setLang((window.I18N&&window.I18N[saved])?saved:'en');
+</script>
+</body>
+</html>
