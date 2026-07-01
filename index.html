@@ -124,6 +124,15 @@
   .price-card .pnote{margin-top:22px;font-size:13.5px;font-style:italic;color:var(--grey-light);line-height:1.55;border-top:1px solid #21262d;padding-top:20px}
   @media(max-width:720px){.price-grid{grid-template-columns:1fr}}
 
+  /* full-screen pricing panels */
+  .pricepanel{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:var(--ink);color:#fff;padding:120px 24px;position:relative;border-top:1px solid #21262d}
+  .pricepanel .plabel{font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--grey-light);margin-bottom:28px}
+  .pricepanel.entry .plabel{color:var(--cyan-bright)}
+  .pricepanel .pval{font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(52px,11vw,140px);letter-spacing:-.04em;color:#fff;line-height:.95}
+  .pricepanel.entry .pval{color:var(--cyan-bright)}
+  .pricepanel .pnote{margin-top:38px;font-size:clamp(18px,2.6vw,28px);font-weight:400;color:var(--grey-light);line-height:1.5;max-width:24ch}
+  .pricepanel .idx{position:absolute;top:46px;left:50%;transform:translateX(-50%);font-family:'Poppins',sans-serif;font-weight:700;font-size:12px;letter-spacing:.3em;color:#2a3139}
+
   .partner{text-align:center;background:var(--paper-warm)}
   .partner .pre{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey-light);font-weight:500;margin-bottom:22px}
   .partner .mark{font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(40px,7vw,72px);letter-spacing:-.03em;color:var(--ink);text-decoration:none;display:inline-block}
@@ -157,18 +166,16 @@
   .ult-block:last-child{border-bottom:none}
 
   /* BILLION finale */
-  .billion{background:#05070a;color:#fff;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 20px;border-top:1px solid #12161c}
-  .billion .pre{font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(18px,2.6vw,30px);letter-spacing:-.01em;color:#8b949e;margin-bottom:8px}
-  .billion .pre b{color:#fff;font-weight:700}
-  .billion .num{font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(44px,13vw,190px);line-height:.98;letter-spacing:-.05em;color:#fff;white-space:nowrap;margin:14px 0}
-  .billion .post{font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(18px,2.6vw,30px);letter-spacing:-.01em;color:#8b949e;margin-top:8px}
-  .billion .post b{color:var(--cyan-bright);font-weight:700}
+  .billion{background:#05070a;color:#fff;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 12px;border-top:1px solid #12161c}
+  .billion .bclaim{font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(20px,3.4vw,42px);letter-spacing:-.02em;color:#c9d1d9;margin-bottom:10px}
+  .billion .num{font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(40px,15vw,240px);line-height:.92;letter-spacing:-.05em;color:#fff;white-space:nowrap;width:100%;margin:10px 0}
+  .billion .badv{font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(26px,5.5vw,70px);letter-spacing:-.02em;color:var(--cyan-bright);margin-top:12px}
 
   /* WORLD — the very last screen */
-  .world{background:#000;color:#fff;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px;gap:clamp(30px,6vw,70px)}
-  .world .eagle{width:clamp(240px,42vw,560px);height:auto;filter:drop-shadow(0 0 60px rgba(70,214,248,.15))}
-  .world p{font-family:'Poppins',sans-serif;font-weight:700;font-size:clamp(26px,5vw,60px);line-height:1.12;letter-spacing:-.035em;max-width:20ch}
-  .world p .adv{color:var(--cyan-bright)}
+  .world{background:#000;color:#fff;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px;gap:clamp(30px,6vw,60px)}
+  .world .eagle{width:clamp(48px,8.4vw,112px);height:auto;filter:drop-shadow(0 0 30px rgba(70,214,248,.18))}
+  .world p{font-family:'Poppins',sans-serif;font-weight:700;font-size:clamp(30px,6vw,72px);line-height:1.1;letter-spacing:-.035em;max-width:18ch}
+  .world p .one{color:var(--cyan-bright)}
   .world p .soft{color:#8b949e;font-weight:600}
 
   @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
@@ -274,11 +281,21 @@
     <div class="eyebrow reveal" data-i18n="select_eye">How we work</div>
     <h2 class="statement center reveal d1"><span data-i18n="select_h">We work with the few. </span><span class="dim" data-i18n="select_dim">And only they qualify.</span></h2>
     <p class="lede reveal d2" style="margin-left:auto;margin-right:auto;text-align:center" data-i18n="select_lede">This is not a service you buy. It is a position you earn. We take on a small number of companies with the will and the weight to become the reference point in their category — and we turn them into it.</p>
-    <div class="price-grid reveal d3">
-      <div class="price-card main"><div class="plabel" data-i18n="price_main_l">The engagement</div><div class="pval" data-i18n="price_main_v">€1,000,000</div><div class="pnote" data-i18n="price_main_note">Don't dream the category. Become it.</div></div>
-      <div class="price-card entry"><div class="plabel" data-i18n="price_entry_l">The qualification</div><div class="pval" data-i18n="price_entry_v">€10,000</div><div class="pnote" data-i18n="price_entry_note">Before you become the ONE, find out if you were ever meant to be.</div></div>
-    </div>
   </div>
+</section>
+
+<section class="pricepanel main">
+  <div class="idx">01</div>
+  <div class="plabel" data-i18n="price_main_l">The engagement</div>
+  <div class="pval" data-i18n="price_main_v">€1,000,000+</div>
+  <div class="pnote" data-i18n="price_main_note">A company-level transformation mandate. Not a project. Not a campaign. An operating shift.</div>
+</section>
+
+<section class="pricepanel entry">
+  <div class="idx">02</div>
+  <div class="plabel" data-i18n="price_entry_l">The qualification</div>
+  <div class="pval" data-i18n="price_entry_v">€10,000</div>
+  <div class="pnote" data-i18n="price_entry_note">A strategic diagnostic to determine whether the company is ready to become the ONE.</div>
 </section>
 
 <section class="partner" id="partner">
@@ -320,14 +337,14 @@
 </div>
 
 <section class="billion">
-  <div class="pre" data-i18n="bil_pre">Become a</div>
+  <div class="bclaim" data-i18n="bil_l1">BE, Think and Act beyond</div>
   <div class="num">1.000.000.000</div>
-  <div class="post" data-i18n="bil_post">company.</div>
+  <div class="badv" data-i18n="bil_l3">AdVenture</div>
 </section>
 
 <section class="world">
   <img class="eagle" alt="Imperioo eagle" src="data:image/png;base64,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">
-  <p><span data-i18n="world_a">Think, act and BE beyond 1.000.000.000</span> <span class="adv" data-i18n="world_b">AdVenture</span><span data-i18n="world_c">.</span></p>
+  <p><span class="one" data-i18n="world_a">BE the ONE</span><span data-i18n="world_b"> — impact the world for the better.</span></p>
 </section>
 
 <script src="i18n.js"></script>
